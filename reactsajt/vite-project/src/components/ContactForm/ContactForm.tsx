@@ -30,6 +30,42 @@ const ContactForm: React.FC = () => {
     setMessage("");
   };
 
+  return (
+    <div className="kontakt">
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>
+            Ime i Prezime
+            <input
+              type="text"
+              value={name}
+              onChange={handleNameChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Email
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Tekst
+            <textarea value={message} onChange={handleMessageChange} required />
+          </label>
+        </div>
+        <button type="submit">Pošalji</button>
+      </form>
+    </div>
+  );
+
 
 };
 
