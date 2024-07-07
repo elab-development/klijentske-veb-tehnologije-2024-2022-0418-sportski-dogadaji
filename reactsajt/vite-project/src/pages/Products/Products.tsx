@@ -7,6 +7,9 @@ const Products: React.FC = () => {
       <Link to="/fudbal">
         <h1>Fudbal</h1>
       </Link>
+      <Link to="/kosarka">
+        <h1>Kosarka</h1>
+      </Link>
     </ul>
   );
 };
