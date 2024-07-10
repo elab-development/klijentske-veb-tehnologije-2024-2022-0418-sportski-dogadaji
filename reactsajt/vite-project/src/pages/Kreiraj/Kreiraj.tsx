@@ -37,20 +37,20 @@ const Kreiraj: React.FC = () => {
     <div>
       <h2>Kreiraj novi turnir</h2>
       <div>
-        <label>Sport:</label>
-        <input type="text" value={sport} onChange={handleSportChange} />
+        <label htmlFor="sport">Sport:</label>
+        <input id="sport" data-testid="sport" type="text" value={sport} onChange={handleSportChange} />
       </div>
       <div>
-        <label>Datum:</label>
-        <input type="date" value={datum} onChange={handleDatumChange} />
+        <label htmlFor="datum">Datum:</label>
+        <input id="datum" type="date" value={datum} onChange={handleDatumChange} />
       </div>
       <div>
-        <label>Vreme:</label>
-        <input type="time" value={vreme} onChange={handleVremeChange} />
+        <label htmlFor="vreme">Vreme:</label>
+        <input id="vreme" type="time" value={vreme} onChange={handleVremeChange} />
       </div>
       <div>
-        <label>Lokacija:</label>
-        <input type="text" value={lokacija} onChange={handleLokacijaChange} />
+        <label htmlFor="lokacija">Lokacija:</label>
+        <input id="lokacija" type="text" value={lokacija} onChange={handleLokacijaChange} />
       </div>
       <button onClick={handleKreirajClick}>Kreiraj</button>
       {kreiranTurnir && <p>Uspešno ste kreirali turnir!</p>}
