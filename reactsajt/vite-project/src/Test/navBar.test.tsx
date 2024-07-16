@@ -1,11 +1,11 @@
-//qimport React from "react";
+
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import "@testing-library/jest-dom"
 import NavBar from "../components/NavBar/NavBar";
 
 describe("NavBar", () => {
-  test("renders NavBar component with correct links", () => {
+  test("navbar se renderuje sa ispravnim linkovima", () => {
     render(
       <Router>
         <NavBar />

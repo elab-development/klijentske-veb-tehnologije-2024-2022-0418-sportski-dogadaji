@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import NavBar from '../components/NavBar/NavBar';
 
 jest.mock('react-router-dom', () => ({
-  NavLink: () => <a></a>,
+  NavLink: jest.fn(),
 }));
 
 test('renders navbar with correct links', () => {

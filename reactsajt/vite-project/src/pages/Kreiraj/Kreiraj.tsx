@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import "./Kreiraj.css";
+import { Sport } from "../../interface/interfaceSport";
+import { Event } from "../../interface/interfaceEvent";
+import { SportType } from "../../classes/SportType";
+import { SportsEvent } from "../../classes/sportsEventClass";
 
 const Kreiraj: React.FC = () => {
   const [sport, setSport] = useState<string>("");
@@ -26,12 +30,34 @@ const Kreiraj: React.FC = () => {
 
   const handleKreirajClick = () => {
     if (sport && datum && vreme && lokacija) {
-      console.log("Kreiran turnir:", { sport, datum, vreme, lokacija });
+      const newEvent: Event = {
+        id: Math.random(),
+        sportId: 1,
+        title: sport,
+        dateTime: `${datum} ${vreme}`
+      };
+      
+      const sportsEvent = new SportsEvent(newEvent.id, sport, new Date(newEvent.dateTime));
+      console.log(sportsEvent.getEventDetails());
+
+      const sportType = new SportType(1, sport);
+      console.log(sportType.getTypeDetails());
+
       setKreiranTurnir(true);
     } else {
       alert("Molimo Vas popunite sva polja pre kreiranja turnira.");
     }
   };
+
+
+  /*const handleKreirajClick = () => {
+    if (sport && datum && vreme && lokacija) {
+      console.log("Kreiran turnir:", { sport, datum, vreme, lokacija });
+      setKreiranTurnir(true);
+    } else {
+      alert("Molimo Vas popunite sva polja pre kreiranja turnira.");
+    }
+  };*/
 
   return (
     <div>
