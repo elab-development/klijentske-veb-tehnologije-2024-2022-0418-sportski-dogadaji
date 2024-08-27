@@ -1,16 +1,33 @@
-version: '3.8'
+
+name: sportster
 
 services:
   web:
-    container_name: ime_react_kontejnera
     build:
       context: .
       dockerfile: Dockerfile  
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - sportster.env
     ports:
       - "3000:80"  
     networks:
-      - my_network
-
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      replicas: 3
+  db:
+    image: postgres:latest
+    env_file:
+      - db.env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
 networks:
+    app-network:
+     driver: bridge
+volumes:
+  sportster-data:
+  postgres-data:
