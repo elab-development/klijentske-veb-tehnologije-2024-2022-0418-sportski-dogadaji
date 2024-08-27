@@ -29,15 +29,15 @@ const Kreiraj: React.FC = () => {
   };
 
   const handleKreirajClick = () => {
-    if (sport && datum && vreme && lokacija) {
+    if (sport && datum && vreme && lokacija && sport=="fudbal") {
       const newEvent: Event = {
-        id: Math.random(),
         sportId: 1,
-        title: sport,
-        dateTime: `${datum} ${vreme}`
+        title: "Fudbal",
+        dateTime: `${datum} ${vreme}`,
+        lokacija: lokacija
       };
       
-      const sportsEvent = new SportsEvent(newEvent.id, sport, new Date(newEvent.dateTime));
+      const sportsEvent = new SportsEvent(newEvent.sportId, newEvent.title, new Date(newEvent.dateTime), newEvent.lokacija);
       console.log(sportsEvent.getEventDetails());
 
       const sportType = new SportType(1, sport);
@@ -45,8 +45,25 @@ const Kreiraj: React.FC = () => {
 
       setKreiranTurnir(true);
     } else {
-      alert("Molimo Vas popunite sva polja pre kreiranja turnira.");
-    }
+      if (sport && datum && vreme && lokacija && sport=="kosarka") {
+        const newEvent: Event = {
+          sportId: 2,
+          title: "Kosarka",
+          dateTime: `${datum} ${vreme}`,
+          lokacija: lokacija
+        };
+        
+        const sportsEvent = new SportsEvent(newEvent.sportId, newEvent.title, new Date(newEvent.dateTime), newEvent.lokacija);
+        console.log(sportsEvent.getEventDetails());
+  
+        const sportType = new SportType(2, sport);
+        console.log(sportType.getTypeDetails());
+  
+        setKreiranTurnir(true);
+      }else {alert("Molimo Vas popunite sva polja pre kreiranja turnira.");}
+
+      
+    } 
   };
 
 
