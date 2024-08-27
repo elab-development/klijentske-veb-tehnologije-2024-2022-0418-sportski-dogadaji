@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Kosarka from "./pages/Kosarka/Kosarka";
 import Fudbal from "./pages/Fudbal/Fudbal";
 import Kreiraj from "./pages/Kreiraj/Kreiraj";
+import Tenis from "./pages/Tenis/Tenis";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         <Route path="/kosarka" element={<Kosarka />} />
         <Route path="/fudbal" element={<Fudbal />} />
         <Route path="/kreiraj" element={<Kreiraj />} />
+        <Route path="/tenis" element={<Tenis />} />
       </Routes>
     </Router>
   );

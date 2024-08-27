@@ -19,6 +19,10 @@ const Home: React.FC = () => {
             <Link to="/kosarka">Košarkaški turnir</Link> - 30. jun 2027. u
             15:00h
           </li>
+          <li>
+            <Link to="/tenis">Teniski turnir</Link> - 04. avgust 2024. u
+            14:10h
+          </li>
         </ul>
       </div>
       <div>
